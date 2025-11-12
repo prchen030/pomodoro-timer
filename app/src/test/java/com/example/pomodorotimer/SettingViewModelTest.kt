@@ -48,6 +48,15 @@ class SettingViewModelTest {
     }
 
     @Test
+    fun updateIsGranted_setGrantValue() = runTest {
+        assertEquals(false, viewModel.isGranted.value)
+        viewModel.setGrantValue(true)
+        advanceUntilIdle()
+        val res = viewModel.isGranted.first()
+        assertEquals(res, true)
+    }
+
+    @Test
     fun updatePomodoroTime_updateIntValue() = runTest {
         assertEquals(TimerStates.POMODORO.default, viewModel.pomodoroTime.value)
         viewModel.updateIntValue(key = PrefKeys.KEY_POMODORO_TIME, value = 1)
@@ -91,6 +100,5 @@ class SettingViewModelTest {
         val res = viewModel.ifSound.first { it }
         assertEquals(res,true)
     }
-
 
 }
