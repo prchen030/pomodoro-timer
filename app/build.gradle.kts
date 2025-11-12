@@ -102,5 +102,9 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.ui.test.junit4)
 
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+
     implementation(libs.androidx.datastore.preferences)
+    testImplementation(kotlin("test"))
 }
